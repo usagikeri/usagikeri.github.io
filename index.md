@@ -10,4 +10,4 @@ test
 - e
 
 # Link
-[[test]]
+[test.md](test.md)
