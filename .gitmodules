@@ -1,0 +1,12 @@
+[submodule "hugo-theme-casper"]
+	path = hugo-theme-casper
+	url = https://github.com/vjeantet/hugo-theme-casper
+[submodule "themes/casper"]
+	path = themes/casper
+	url = https://github.com/vjeantet/hugo-theme-casper
+[submodule "blog/themes/potato-dark"]
+	path = blog/themes/potato-dark
+	url = https://github.com/surajmandalcell/potato-dark
+[submodule "weblog/themes/hermit"]
+	path = weblog/themes/hermit
+	url = https://github.com/Track3/hermit.git
