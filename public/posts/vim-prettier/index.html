@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ja-jp">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="theme-color" content="#494f5c">
+	<meta name="msapplication-TileColor" content="#494f5c">
+
+<meta itemprop="name" content="Markdownの表を整形するVim Plugin">
+<meta itemprop="description" content="Markdownで表を書く場合は，以下のように書きます．
+|x|y|z| |-|-|-| |asdf|ghjk|l;&#39;|  これがプレビューされると次のようになります．
+   x y z     asdf ghjk l;&rsquo;    プレビューされれば，なんの問題もありませんが，コードでみると可読性が低いです． そこで，vim-Prettierを使い，以下のように整形されたテーブルを自動生成できるようにします．
+| x | y | z | | ---- | ---- | --- | | asdf | ghjk | l;&#39; |  環境    用途 ソフトウェア名 version     os macosmojave 10.14.2   パッケージマネージャ homebrew 2.0.2   エディター nvim 0.">
+
+
+<meta itemprop="datePublished" content="2019-03-03T14:48:33&#43;09:00" />
+<meta itemprop="dateModified" content="2019-03-03T14:48:33&#43;09:00" />
+<meta itemprop="wordCount" content="178">
+
+
+
+<meta itemprop="keywords" content="vim,vim-plugin," />
+<meta property="og:title" content="Markdownの表を整形するVim Plugin" />
+<meta property="og:description" content="Markdownで表を書く場合は，以下のように書きます．
+|x|y|z| |-|-|-| |asdf|ghjk|l;&#39;|  これがプレビューされると次のようになります．
+   x y z     asdf ghjk l;&rsquo;    プレビューされれば，なんの問題もありませんが，コードでみると可読性が低いです． そこで，vim-Prettierを使い，以下のように整形されたテーブルを自動生成できるようにします．
+| x | y | z | | ---- | ---- | --- | | asdf | ghjk | l;&#39; |  環境    用途 ソフトウェア名 version     os macosmojave 10.14.2   パッケージマネージャ homebrew 2.0.2   エディター nvim 0." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://usagikeri.net/posts/vim-prettier/" />
+<meta property="article:published_time" content="2019-03-03T14:48:33&#43;09:00"/>
+<meta property="article:modified_time" content="2019-03-03T14:48:33&#43;09:00"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Markdownの表を整形するVim Plugin"/>
+<meta name="twitter:description" content="Markdownで表を書く場合は，以下のように書きます．
+|x|y|z| |-|-|-| |asdf|ghjk|l;&#39;|  これがプレビューされると次のようになります．
+   x y z     asdf ghjk l;&rsquo;    プレビューされれば，なんの問題もありませんが，コードでみると可読性が低いです． そこで，vim-Prettierを使い，以下のように整形されたテーブルを自動生成できるようにします．
+| x | y | z | | ---- | ---- | --- | | asdf | ghjk | l;&#39; |  環境    用途 ソフトウェア名 version     os macosmojave 10.14.2   パッケージマネージャ homebrew 2.0.2   エディター nvim 0."/>
+
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+	<link rel="shortcut icon" href="/favicon.ico">
+
+	<title>Markdownの表を整形するVim Plugin</title>
+	<link rel="stylesheet" href="https://usagikeri.net/css/style.min.8894ae31aa3aee086d9fbd24069c3f4b958e06418129e69b9128848219b35956.css" integrity="sha256-iJSuMao67ghtn70kBpw/S5WOBkGBKeabkSiEghmzWVY=">
+	
+</head>
+
+<body id="page">
+	
+	<header id="site-header" class="animated slideInUp faster">
+		<div class="hdr-wrapper section-inner">
+			<div class="hdr-left">
+				<div class="site-branding">
+					<a href="https://usagikeri.net/">塵芥乱文</a>
+				</div>
+				<nav class="site-nav hide-in-mobile">
+					<a href="https://usagikeri.net/posts/">Posts</a>
+					<a href="https://usagikeri.net/about/">About</a>
+				</nav>
+			</div>
+			<div class="hdr-right hdr-icons">
+				<button id="toc-btn" class="hdr-btn desktop-only-ib" title=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-list"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3" y2="6"></line><line x1="3" y1="12" x2="3" y2="12"></line><line x1="3" y1="18" x2="3" y2="18"></line></svg></button><span class="hdr-social hide-in-mobile"><a href="https://twitter.com/usagikeri" target="_blank" rel="noopener" title="Twitter"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-twitter"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a><a href="https://github.com/usagikeri" target="_blank" rel="noopener" title="Github"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a></span><button id="menu-btn" class="hdr-btn" title=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+			</div>
+		</div>
+	</header>
+	<div id="mobile-menu" class="animated fast">
+		<ul>
+			<li><a href="https://usagikeri.net/posts/">Posts</a></li>
+			<li><a href="https://usagikeri.net/about/">About</a></li>
+		</ul>
+	</div>
+
+
+	<main class="site-main section-inner animated fadeIn faster">
+		<article class="thin">
+			<header class="post-header">
+				<div class="post-meta"><span>Mar 3, 2019</span></div>
+				<h1>Markdownの表を整形するVim Plugin</h1>
+			</header>
+			<div class="content">
+				
+
+<p>Markdownで表を書く場合は，以下のように書きます．</p>
+
+<pre><code>|x|y|z|
+|-|-|-|
+|asdf|ghjk|l;'|
+</code></pre>
+
+<p>これがプレビューされると次のようになります．</p>
+
+<table>
+<thead>
+<tr>
+<th>x</th>
+<th>y</th>
+<th>z</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>asdf</td>
+<td>ghjk</td>
+<td>l;&rsquo;</td>
+</tr>
+</tbody>
+</table>
+
+<p>プレビューされれば，なんの問題もありませんが，コードでみると可読性が低いです．
+そこで，vim-Prettierを使い，以下のように整形されたテーブルを自動生成できるようにします．</p>
+
+<pre><code>| x    | y    | z   |
+| ---- | ---- | --- |
+| asdf | ghjk | l;' |
+</code></pre>
+
+<h1 id="環境">環境<a href="#環境" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
+
+<table>
+<thead>
+<tr>
+<th align="center">用途</th>
+<th align="center">ソフトウェア名</th>
+<th align="center">version</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center">os</td>
+<td align="center">macosmojave</td>
+<td align="center">10.14.2</td>
+</tr>
+
+<tr>
+<td align="center">パッケージマネージャ</td>
+<td align="center">homebrew</td>
+<td align="center">2.0.2</td>
+</tr>
+
+<tr>
+<td align="center">エディター</td>
+<td align="center">nvim</td>
+<td align="center">0.3.4</td>
+</tr>
+
+<tr>
+<td align="center">プラグインマネージャ</td>
+<td align="center">vim-plug</td>
+<td align="center">不明</td>
+</tr>
+</tbody>
+</table>
+
+<h1 id="prettierのinstall">PrettierのInstall<a href="#prettierのinstall" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
+
+<p>まず，Prettierのインストールを行います．</p>
+
+<p>Homebrewを使ってインストールをします．</p>
+
+<pre><code>$ brew install prettier
+</code></pre>
+
+<p><a href="https://prettier.io/">Pretter</a>はコードフォーマッター（コードをいい感じに整形してくれる）で，公式サイトによると以下の特徴があるようです．</p>
+
+<ul>
+<li>An opinionated code formatter</li>
+<li>Supports many languages</li>
+<li>Integrates with most editors</li>
+<li>Has few options</li>
+</ul>
+
+<p>対応しているファイル形式は以下のものがあるようです．</p>
+
+<ul>
+<li>JavaScript</li>
+<li>TypeScript</li>
+<li>CSS</li>
+<li>Less</li>
+<li>SCSS</li>
+<li>Json</li>
+<li>GraphQL</li>
+<li>Markdown</li>
+<li>Vue</li>
+<li>Lua</li>
+<li>PHP</li>
+<li>Python</li>
+<li>Ruby</li>
+<li>HTML</li>
+<li>Swift</li>
+</ul>
+
+<h1 id="vim-prettierのインストール">vim-prettierのインストール<a href="#vim-prettierのインストール" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
+
+<p>Vimのプラグインマネージャに<a href="https://github.com/junegunn/vim-plug">vim-plug</a>を使っているため，vim-plugでのインストール方法について説明します．</p>
+
+<p><a href="https://github.com/prettier/vim-prettier">vim-prettier</a>にREADMEにvim-plugでのインスール方法について書かれているため，これに従います．</p>
+
+<p>Vimなら.vimrc，NVIMならinit.vimに以下の設定を書き込みます．</p>
+
+<pre><code>Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
+</code></pre>
+
+<p>私はMarkdown以外でPrettierを利用するつもりはないので，以下のようにしています．</p>
+
+<pre><code>Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install',
+  \ 'for': 'markdown'}
+</code></pre>
+
+<p>設定を書き込み終えたら，保存し，プラグインをインストールします．</p>
+
+<pre><code>$ vim +PlugInstall +qa
+</code></pre>
+
+<p>エラーがでなければインストールは完了です．</p>
+
+<h1 id="vim-prettierを使う">vim-prettierを使う<a href="#vim-prettierを使う" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
+
+<p>vim-prettierを使ってみます．まずは適当なMarkdownファイルを作成します．</p>
+<div class="highlight"><pre class="chroma"><code class="language-test.md" data-lang="test.md"><span class="gh">#</span> vim-prettierテスト
+
+<span class="k">*</span> xxx<span class="err">
+</span><span class="err"></span><span class="k">*</span> yyy<span class="err">
+</span><span class="err"></span><span class="k">*</span> zzz<span class="err">
+</span><span class="err">
+</span><span class="err"></span>|x|y|z|<span class="err">
+</span><span class="err"></span>|-|-|-|<span class="err">
+</span><span class="err"></span>|asdf|ghjk|l;&#39;|</code></pre></div>
+<p>そして，</p>
+
+<pre><code>:Prettier
+</code></pre>
+
+<p>を実行します．すると以下のようになると思います．</p>
+
+<pre><code># vim-prettier テスト
+
+- xxx
+- yyy
+- zzz
+
+| x    | y    | z   |
+| ---- | ---- | --- |
+| asdf | ghjk | l;' |
+</code></pre>
+
+<p>テーブルは正しく整形されていますが，他の部分も意図しない変更がされています．
+これはPrettierがMarkdownファイルを整形する際に，</p>
+
+<ul>
+<li>リストの先頭を-にする</li>
+<li>英単語の前後にはスペースを入れる</li>
+</ul>
+
+<p>というルールがあるからだそうです．</p>
+
+<p>リストの先頭を-にするのは問題ありませんが英単語の前後にスペースが入るのは，日本語と英語が混ざる文章では邪魔に感じます．</p>
+
+<p>私は，テーブルの整形だけにPrettierを使おうと思っているので，ヴィジュアルモードで選択してからPrettierを使うことにします．</p>
+
+<script id="asciicast-231252" src="https://asciinema.org/a/231252.js" async></script>
+
+			</div>
+			<hr class="post-end">
+			<footer class="post-info">
+				<p>
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://usagikeri.net/tags/vim">vim</a></span><span class="tag"><a href="https://usagikeri.net/tags/vim-plugin">vim-plugin</a></span>
+				</p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2019-03-03 14:48 &#43;0900</p>
+			</footer>
+		</article>
+		<aside id="toc">
+			<div class="toc-title"></div>
+			<nav id="TableOfContents">
+<ul>
+<li><a href="#環境">環境</a></li>
+<li><a href="#prettierのinstall">PrettierのInstall</a></li>
+<li><a href="#vim-prettierのインストール">vim-prettierのインストール</a></li>
+<li><a href="#vim-prettierを使う">vim-prettierを使う</a></li>
+</ul>
+</nav>
+		</aside>
+		<div class="post-nav thin">
+		</div>
+		<div id="comments" class="thin">
+</div>
+	</main>
+
+	<footer id="site-footer" class="section-inner thin animated fadeIn faster">
+		<p>&copy; 2019 <a href="https://usagikeri.net/">usagikeri</a> &#183; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
+		<p>
+			Made with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> &#183; Theme <a href="https://github.com/Track3/hermit" target="_blank" rel="noopener">Hermit</a> &#183; <a href="https://usagikeri.net/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>
+		</p>
+	</footer>
+
+
+	<script src="https://usagikeri.net/js/main.min.8f39f24808e9d0a9b02da58c2d2838da859dc0b7bdfadbdb1883aae8b6adacfe.js" integrity="sha256-jznySAjp0KmwLaWMLSg42oWdwLe9+tvbGIOq6LatrP4="></script>
+
+</body>
+
+</html>

@@ -3,8 +3,8 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://usagikeri.net/posts/hello-world/</loc>
-    <lastmod>2019-02-26T23:17:38+09:00</lastmod>
+    <loc>https://usagikeri.net/posts/vim-prettier/</loc>
+    <lastmod>2019-03-03T14:48:33+09:00</lastmod>
   </url>
   
   <url>
@@ -14,7 +14,7 @@
   
   <url>
     <loc>https://usagikeri.net/posts/</loc>
-    <lastmod>2019-02-26T23:17:38+09:00</lastmod>
+    <lastmod>2019-03-03T14:48:33+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -24,8 +24,20 @@
   </url>
   
   <url>
+    <loc>https://usagikeri.net/tags/vim/</loc>
+    <lastmod>2019-03-03T14:48:33+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://usagikeri.net/tags/vim-plugin/</loc>
+    <lastmod>2019-03-03T14:48:33+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://usagikeri.net/</loc>
-    <lastmod>2019-02-26T23:17:38+09:00</lastmod>
+    <lastmod>2019-03-03T14:48:33+09:00</lastmod>
     <priority>0</priority>
   </url>
   
