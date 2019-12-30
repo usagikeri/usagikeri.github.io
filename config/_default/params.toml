@@ -1,0 +1,106 @@
+logoText = "usagikeri.net" # Logo text that appears in the site navigation bar.
+description = "usagiker.net" # for SEO
+custom_css = [] # custom_css = ["scss/custom.scss"] and then make file at root/assets/scss/custom.scss
+custom_js = [] # custom_js = ["js/custom.js"] and then make file at root/assets/js/custom.js
+
+# header
+homeHeaderType = "text" # text, img, slide
+
+# navbar
+enableThemeChange = true # site color theme
+
+# body
+enableBreadcrumb = true # breadcrumb for list, single page
+enablePhotoSwipe = false # image viewer for gallery, single page
+enableSearch = true # site search with Fuse
+enableGoToTop = true # scroll to top
+enableWhoami = true # at the end of single page
+summaryShape = "classic" # card, classic, compact
+archiveGroupByDate = "2006" # "2006-01": group by month, "2006": group by year
+archivePaginate = 13 # items per page
+paginateWindow = 1 # setting it to 1 gives 7 buttons, 2 gives 9, etc. If set 1: [1 ... 4 5 6 ... 356] [1 2 3 4 5 ... 356] etc
+
+# whoami: usage - home page sidebar, single page bottom of post. all values can be empty
+myname = "usagikeri"
+email = ""
+whoami = "nothing"
+useGravatar = false
+location = "Hyogo, Japan"
+organization = ""
+link = "https://github.com/usagikeri/."
+
+# sidebar
+enableBio = true # home page sidebar
+enableSidebar = true # Set to false to create the full width of the content.
+enableSidebarTags = true # if you want to use tags.
+#enableSidebarSeries = true
+enableSidebarCategories = true
+enableToc = true # single page table of contents, you can replace this param to toc(toc = true)
+hideToc = false # Hide or Show toc
+enableTocSwitch = true # single page table of contents visibility switch
+itemsPerCategory = 5 # maximum number of posts shown in the sidebar.
+
+# footer
+showPoweredBy = true # show footer text: Powered by Hugo and Zzo theme
+showFeedLinks = true # RSS Feed
+showSocialLinks = true # email, facebook, twitter ...
+enableLangChange = false # show button at bottom left of footer.
+themeOptions = ["dark", "light", "hacker", "solarized", "custom"] # select options for site color theme
+
+# service
+baiduAnalytics = "" # alternative of google analytics
+enableBusuanzi = false # if set true, total page view, total unique visitors show up in the footer.
+busuanziSiteUV = true # unique visitors (total number of visitors)
+busuanziSitePV = true # site total page view count
+busuanziPagePV = true # post view count
+
+# comment
+enableComment = true
+disqus_shortname = ""
+commento = false
+
+[gitment]          # Gitment is a comment system based on GitHub issues. see https://github.com/imsun/gitment
+owner = ""              # Your GitHub ID
+repo = ""               # The repo to store comments
+clientId = ""           # Your client ID
+clientSecret = ""       # Your client secret
+
+[utterances]       # https://utteranc.es/
+owner = ""              # Your GitHub ID
+repo = ""               # The repo to store comments
+
+[gitalk]           # Gitalk is a comment system based on GitHub issues. see https://github.com/gitalk/gitalk
+owner = ""              # Your GitHub ID
+repo = ""               # The repo to store comments
+clientId = ""           # Your client ID
+clientSecret = ""       # Your client secret
+
+
+[socialOptions] # if set, social icons will show up.
+email = ""
+facebook = ""
+twitter = ""
+github = "https://github.com/usagikeri"
+stack-overflow = ""
+instagram = ""
+google-plus = ""
+youtube = ""
+medium = ""
+tumblr = ""
+linkedin = ""
+pinterest = ""
+stack-exchange = ""
+telegram = ""
+steam = ""
+weibo = ""
+douban = ""
+csdn = ""
+zhihu = ""
+gitlab = ""
+mastodon = ""
+
+[copyrightOptions]
+enableCopyrightLink = false # if set, you can add copyright link
+copyrightLink = ""
+copyrightLinkImage = ""
+copyrightLinkText = ""
