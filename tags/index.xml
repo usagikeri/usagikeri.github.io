@@ -1,33 +1,37 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on 塵芥乱文</title>
+    <title>Tags on usagikeri.net</title>
     <link>https://usagikeri.net/tags/</link>
-    <description>Recent content in Tags on 塵芥乱文</description>
+    <description>Recent content in Tags on usagikeri.net</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>ja-jp</language>
-    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <language>jp</language>
+    <copyright>©{year}, All Rights Reserved</copyright>
+    <lastBuildDate>Sun, 03 Mar 2019 14:48:33 +0900</lastBuildDate>
     
-	<atom:link href="https://usagikeri.net/tags/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://usagikeri.net/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
-    <item>
-      <title>Vim</title>
-      <link>https://usagikeri.net/tags/vim/</link>
-      <pubDate>Sun, 03 Mar 2019 14:48:33 +0900</pubDate>
+    
       
-      <guid>https://usagikeri.net/tags/vim/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Vim Plugin</title>
-      <link>https://usagikeri.net/tags/vim-plugin/</link>
-      <pubDate>Sun, 03 Mar 2019 14:48:33 +0900</pubDate>
+      <item>
+        <title>vim</title>
+        <link>https://usagikeri.net/tags/vim/</link>
+        <pubDate>Sun, 03 Mar 2019 14:48:33 +0900</pubDate>
+        
+        <guid>https://usagikeri.net/tags/vim/</guid>
+        <description></description>
+      </item>
       
-      <guid>https://usagikeri.net/tags/vim-plugin/</guid>
-      <description></description>
-    </item>
+      <item>
+        <title>vim-plugin</title>
+        <link>https://usagikeri.net/tags/vim-plugin/</link>
+        <pubDate>Sun, 03 Mar 2019 14:48:33 +0900</pubDate>
+        
+        <guid>https://usagikeri.net/tags/vim-plugin/</guid>
+        <description></description>
+      </item>
+      
     
   </channel>
 </rss>

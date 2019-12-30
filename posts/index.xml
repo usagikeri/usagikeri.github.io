@@ -1,212 +1,28 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-	<channel>
-		<title>Posts on 塵芥乱文</title>
-		<link>https://usagikeri.net/posts/</link>
-		<description>Recent content in Posts on 塵芥乱文</description>
-		<generator>Hugo -- gohugo.io</generator>
-		<language>ja-jp</language>
-		<copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-		<lastBuildDate>Sun, 03 Mar 2019 14:48:33 +0900</lastBuildDate>
-		<atom:link href="https://usagikeri.net/posts/index.xml" rel="self" type="application/rss+xml" />
-		
-		<item>
-			<title>Markdownの表を整形するVim Plugin</title>
-			<link>https://usagikeri.net/posts/vim-prettier/</link>
-			<pubDate>Sun, 03 Mar 2019 14:48:33 +0900</pubDate>
-			
-			<guid>https://usagikeri.net/posts/vim-prettier/</guid>
-			<description>Markdownで表を書く場合は，以下のように書きます．
-|x|y|z| |-|-|-| |asdf|ghjk|l;&#39;|  これがプレビューされると次のようになります．
-   x y z     asdf ghjk l;&amp;rsquo;    プレビューされれば，なんの問題もありませんが，コードでみると可読性が低いです． そこで，vim-Prettierを使い，以下のように整形されたテーブルを自動生成できるようにします．
-| x | y | z | | ---- | ---- | --- | | asdf | ghjk | l;&#39; |  環境    用途 ソフトウェア名 version     os macosmojave 10.14.2   パッケージマネージャ homebrew 2.0.2   エディター nvim 0.</description>
-			<content type="html"><![CDATA[
-
-<p>Markdownで表を書く場合は，以下のように書きます．</p>
-
-<pre><code>|x|y|z|
-|-|-|-|
-|asdf|ghjk|l;'|
-</code></pre>
-
-<p>これがプレビューされると次のようになります．</p>
-
-<table>
-<thead>
-<tr>
-<th>x</th>
-<th>y</th>
-<th>z</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>asdf</td>
-<td>ghjk</td>
-<td>l;&rsquo;</td>
-</tr>
-</tbody>
-</table>
-
-<p>プレビューされれば，なんの問題もありませんが，コードでみると可読性が低いです．
-そこで，vim-Prettierを使い，以下のように整形されたテーブルを自動生成できるようにします．</p>
-
-<pre><code>| x    | y    | z   |
-| ---- | ---- | --- |
-| asdf | ghjk | l;' |
-</code></pre>
-
-<h1 id="環境">環境</h1>
-
-<table>
-<thead>
-<tr>
-<th align="center">用途</th>
-<th align="center">ソフトウェア名</th>
-<th align="center">version</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td align="center">os</td>
-<td align="center">macosmojave</td>
-<td align="center">10.14.2</td>
-</tr>
-
-<tr>
-<td align="center">パッケージマネージャ</td>
-<td align="center">homebrew</td>
-<td align="center">2.0.2</td>
-</tr>
-
-<tr>
-<td align="center">エディター</td>
-<td align="center">nvim</td>
-<td align="center">0.3.4</td>
-</tr>
-
-<tr>
-<td align="center">プラグインマネージャ</td>
-<td align="center">vim-plug</td>
-<td align="center">不明</td>
-</tr>
-</tbody>
-</table>
-
-<h1 id="prettierのinstall">PrettierのInstall</h1>
-
-<p>まず，Prettierのインストールを行います．</p>
-
-<p>Homebrewを使ってインストールをします．</p>
-
-<pre><code>$ brew install prettier
-</code></pre>
-
-<p><a href="https://prettier.io/">Pretter</a>はコードフォーマッター（コードをいい感じに整形してくれる）で，公式サイトによると以下の特徴があるようです．</p>
-
-<ul>
-<li>An opinionated code formatter</li>
-<li>Supports many languages</li>
-<li>Integrates with most editors</li>
-<li>Has few options</li>
-</ul>
-
-<p>対応しているファイル形式は以下のものがあるようです．</p>
-
-<ul>
-<li>JavaScript</li>
-<li>TypeScript</li>
-<li>CSS</li>
-<li>Less</li>
-<li>SCSS</li>
-<li>Json</li>
-<li>GraphQL</li>
-<li>Markdown</li>
-<li>Vue</li>
-<li>Lua</li>
-<li>PHP</li>
-<li>Python</li>
-<li>Ruby</li>
-<li>HTML</li>
-<li>Swift</li>
-</ul>
-
-<h1 id="vim-prettierのインストール">vim-prettierのインストール</h1>
-
-<p>Vimのプラグインマネージャに<a href="https://github.com/junegunn/vim-plug">vim-plug</a>を使っているため，vim-plugでのインストール方法について説明します．</p>
-
-<p><a href="https://github.com/prettier/vim-prettier">vim-prettier</a>にREADMEにvim-plugでのインスール方法について書かれているため，これに従います．</p>
-
-<p>Vimなら.vimrc，NVIMならinit.vimに以下の設定を書き込みます．</p>
-
-<pre><code>Plug 'prettier/vim-prettier', {
-  \ 'do': 'yarn install',
-  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
-</code></pre>
-
-<p>私はMarkdown以外でPrettierを利用するつもりはないので，以下のようにしています．</p>
-
-<pre><code>Plug 'prettier/vim-prettier', {
-  \ 'do': 'yarn install',
-  \ 'for': 'markdown'}
-</code></pre>
-
-<p>設定を書き込み終えたら，保存し，プラグインをインストールします．</p>
-
-<pre><code>$ vim +PlugInstall +qa
-</code></pre>
-
-<p>エラーがでなければインストールは完了です．</p>
-
-<h1 id="vim-prettierを使う">vim-prettierを使う</h1>
-
-<p>vim-prettierを使ってみます．まずは適当なMarkdownファイルを作成します．</p>
-<div class="highlight"><pre class="chroma"><code class="language-test.md" data-lang="test.md"><span class="gh">#</span> vim-prettierテスト
-
-<span class="k">*</span> xxx<span class="err">
-</span><span class="err"></span><span class="k">*</span> yyy<span class="err">
-</span><span class="err"></span><span class="k">*</span> zzz<span class="err">
-</span><span class="err">
-</span><span class="err"></span>|x|y|z|<span class="err">
-</span><span class="err"></span>|-|-|-|<span class="err">
-</span><span class="err"></span>|asdf|ghjk|l;&#39;|</code></pre></div>
-<p>そして，</p>
-
-<pre><code>:Prettier
-</code></pre>
-
-<p>を実行します．すると以下のようになると思います．</p>
-
-<pre><code># vim-prettier テスト
-
-- xxx
-- yyy
-- zzz
-
-| x    | y    | z   |
-| ---- | ---- | --- |
-| asdf | ghjk | l;' |
-</code></pre>
-
-<p>テーブルは正しく整形されていますが，他の部分も意図しない変更がされています．
-これはPrettierがMarkdownファイルを整形する際に，</p>
-
-<ul>
-<li>リストの先頭を-にする</li>
-<li>英単語の前後にはスペースを入れる</li>
-</ul>
-
-<p>というルールがあるからだそうです．</p>
-
-<p>リストの先頭を-にするのは問題ありませんが英単語の前後にスペースが入るのは，日本語と英語が混ざる文章では邪魔に感じます．</p>
-
-<p>私は，テーブルの整形だけにPrettierを使おうと思っているので，ヴィジュアルモードで選択してからPrettierを使うことにします．</p>
-
-<script id="asciicast-231252" src="https://asciinema.org/a/231252.js" async></script>
-]]></content>
-		</item>
-		
-	</channel>
+  <channel>
+    <title>Posts on usagikeri.net</title>
+    <link>https://usagikeri.net/posts/</link>
+    <description>Recent content in Posts on usagikeri.net</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>jp</language>
+    <copyright>©{year}, All Rights Reserved</copyright>
+    <lastBuildDate>Sun, 03 Mar 2019 14:48:33 +0900</lastBuildDate>
+    
+        <atom:link href="https://usagikeri.net/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+      
+      <item>
+        <title>Markdownの表を整形するVim Plugin</title>
+        <link>https://usagikeri.net/posts/vim-prettier/</link>
+        <pubDate>Sun, 03 Mar 2019 14:48:33 +0900</pubDate>
+        
+        <guid>https://usagikeri.net/posts/vim-prettier/</guid>
+        <description>Markdownで表を書く場合は，以下のように書きます． |x|y|z| |-|-|-| |asdf|ghjk|l;&#39;| これがプレビューされると次のようになります． x y z asdf ghjk l;&amp;rsquo; プレビューされれば，な</description>
+      </item>
+      
+    
+  </channel>
 </rss>

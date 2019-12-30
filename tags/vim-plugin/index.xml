@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Vim Plugin on 塵芥乱文</title>
+    <title>vim-plugin on usagikeri.net</title>
     <link>https://usagikeri.net/tags/vim-plugin/</link>
-    <description>Recent content in Vim Plugin on 塵芥乱文</description>
+    <description>Recent content in vim-plugin on usagikeri.net</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>ja-jp</language>
-    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <language>jp</language>
+    <copyright>©{year}, All Rights Reserved</copyright>
     <lastBuildDate>Sun, 03 Mar 2019 14:48:33 +0900</lastBuildDate>
     
-	<atom:link href="https://usagikeri.net/tags/vim-plugin/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://usagikeri.net/tags/vim-plugin/index.xml" rel="self" type="application/rss+xml" />
     
     
-    <item>
-      <title>Markdownの表を整形するVim Plugin</title>
-      <link>https://usagikeri.net/posts/vim-prettier/</link>
-      <pubDate>Sun, 03 Mar 2019 14:48:33 +0900</pubDate>
+    
       
-      <guid>https://usagikeri.net/posts/vim-prettier/</guid>
-      <description>Markdownで表を書く場合は，以下のように書きます．
-|x|y|z| |-|-|-| |asdf|ghjk|l;&#39;|  これがプレビューされると次のようになります．
-   x y z     asdf ghjk l;&amp;rsquo;    プレビューされれば，なんの問題もありませんが，コードでみると可読性が低いです． そこで，vim-Prettierを使い，以下のように整形されたテーブルを自動生成できるようにします．
-| x | y | z | | ---- | ---- | --- | | asdf | ghjk | l;&#39; |  環境    用途 ソフトウェア名 version     os macosmojave 10.14.2   パッケージマネージャ homebrew 2.0.2   エディター nvim 0.</description>
-    </item>
+      <item>
+        <title>Markdownの表を整形するVim Plugin</title>
+        <link>https://usagikeri.net/posts/vim-prettier/</link>
+        <pubDate>Sun, 03 Mar 2019 14:48:33 +0900</pubDate>
+        
+        <guid>https://usagikeri.net/posts/vim-prettier/</guid>
+        <description>Markdownで表を書く場合は，以下のように書きます． |x|y|z| |-|-|-| |asdf|ghjk|l;&#39;| これがプレビューされると次のようになります． x y z asdf ghjk l;&amp;rsquo; プレビューされれば，な</description>
+      </item>
+      
     
   </channel>
 </rss>
