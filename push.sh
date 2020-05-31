@@ -1,5 +1,7 @@
 #!/bin/bash
 
+hugo
+
 t=`date '+%Y/%m/%d %H:%M'`
 
 git add -A
