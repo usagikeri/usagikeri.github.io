@@ -2,6 +2,6 @@
 
 t=`date '+%Y/%m/%d %H:%M'`
 
-git add .
+git add -A
 git commit -m "$t"
 git push origin write
