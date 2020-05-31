@@ -9,6 +9,15 @@
 	"content": ""
 },
 {
+	"uri": "https://usagikeri.net/posts/vim-prettier/",
+	"title": "Markdownの表を整形するVim Plugin",
+	"tags": ["vim", "vim-plugin"],
+	"categories": [],
+	"series": [],
+	"description": "",
+	"content": "Markdownで表を書く場合は，以下のように書きます．\n|x|y|z| |-|-|-| |asdf|ghjk|l;'| これがプレビューされると次のようになります．\n   x y z     asdf ghjk l;\u0026rsquo;    プレビューされれば，なんの問題もありませんが，コードでみると可読性が低いです．\nそこで，vim-Prettierを使い，以下のように整形されたテーブルを自動生成できるようにします．\n| x | y | z | | ---- | ---- | --- | | asdf | ghjk | l;' | 環境    用途 ソフトウェア名 version     os macosmojave 10.14.2   パッケージマネージャ homebrew 2.0.2   エディター nvim 0.3.4   プラグインマネージャ vim-plug 不明    PrettierのInstall まず，Prettierのインストールを行います．\nHomebrewを使ってインストールをします．\n$ brew install prettier Pretterはコードフォーマッター（コードをいい感じに整形してくれる）で，公式サイトによると以下の特徴があるようです．\n An opinionated code formatter Supports many languages Integrates with most editors Has few options  対応しているファイル形式は以下のものがあるようです．\n JavaScript TypeScript CSS Less SCSS Json GraphQL Markdown Vue Lua PHP Python Ruby HTML Swift  vim-prettierのインストール Vimのプラグインマネージャにvim-plugを使っているため，vim-plugでのインストール方法について説明します．\nvim-prettierにREADMEにvim-plugでのインスール方法について書かれているため，これに従います．\nVimなら.vimrc，NVIMならinit.vimに以下の設定を書き込みます．\nPlug 'prettier/vim-prettier', { \\ 'do': 'yarn install', \\ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] } 私はMarkdown以外でPrettierを利用するつもりはないので，以下のようにしています．\nPlug 'prettier/vim-prettier', { \\ 'do': 'yarn install', \\ 'for': 'markdown'} 設定を書き込み終えたら，保存し，プラグインをインストールします．\n$ vim +PlugInstall +qa エラーがでなければインストールは完了です．\nvim-prettierを使う vim-prettierを使ってみます．まずは適当なMarkdownファイルを作成します．\n1 2 3 4 5 6 7 8 9  # vim-prettierテスト  * xxx * yyy * zzz |x|y|z| |-|-|-| |asdf|ghjk|l;\u0026#39;|   そして，\n:Prettier を実行します．すると以下のようになると思います．\n# vim-prettier テスト - xxx - yyy - zzz | x | y | z | | ---- | ---- | --- | | asdf | ghjk | l;' | テーブルは正しく整形されていますが，他の部分も意図しない変更がされています．\nこれはPrettierがMarkdownファイルを整形する際に，\n リストの先頭を-にする 英単語の前後にはスペースを入れる  というルールがあるからだそうです．\nリストの先頭を-にするのは問題ありませんが英単語の前後にスペースが入るのは，日本語と英語が混ざる文章では邪魔に感じます．\n私は，テーブルの整形だけにPrettierを使おうと思っているので，ヴィジュアルモードで選択してからPrettierを使うことにします．\n "
+},
+{
 	"uri": "https://usagikeri.net/posts/",
 	"title": "Posts",
 	"tags": [],
@@ -27,15 +36,6 @@
 	"content": ""
 },
 {
-	"uri": "https://usagikeri.net/posts/test/",
-	"title": "Test",
-	"tags": [""],
-	"categories": [],
-	"series": [],
-	"description": "",
-	"content": "this is test\n"
-},
-{
 	"uri": "https://usagikeri.net/",
 	"title": "usagikeri.net",
 	"tags": [],
@@ -45,16 +45,7 @@
 	"content": ""
 },
 {
-	"uri": "https://usagikeri.net/posts/vim-prettier/",
-	"title": "Markdownの表を整形するVim Plugin",
-	"tags": ["vim", "vim-plugin"],
-	"categories": [],
-	"series": [],
-	"description": "",
-	"content": "Markdownで表を書く場合は，以下のように書きます．\n|x|y|z| |-|-|-| |asdf|ghjk|l;'| これがプレビューされると次のようになります．\n   x y z     asdf ghjk l;\u0026rsquo;    プレビューされれば，なんの問題もありませんが，コードでみると可読性が低いです．\nそこで，vim-Prettierを使い，以下のように整形されたテーブルを自動生成できるようにします．\n| x | y | z | | ---- | ---- | --- | | asdf | ghjk | l;' | 環境    用途 ソフトウェア名 version     os macosmojave 10.14.2   パッケージマネージャ homebrew 2.0.2   エディター nvim 0.3.4   プラグインマネージャ vim-plug 不明    PrettierのInstall まず，Prettierのインストールを行います．\nHomebrewを使ってインストールをします．\n$ brew install prettier Pretterはコードフォーマッター（コードをいい感じに整形してくれる）で，公式サイトによると以下の特徴があるようです．\n An opinionated code formatter Supports many languages Integrates with most editors Has few options  対応しているファイル形式は以下のものがあるようです．\n JavaScript TypeScript CSS Less SCSS Json GraphQL Markdown Vue Lua PHP Python Ruby HTML Swift  vim-prettierのインストール Vimのプラグインマネージャにvim-plugを使っているため，vim-plugでのインストール方法について説明します．\nvim-prettierにREADMEにvim-plugでのインスール方法について書かれているため，これに従います．\nVimなら.vimrc，NVIMならinit.vimに以下の設定を書き込みます．\nPlug 'prettier/vim-prettier', { \\ 'do': 'yarn install', \\ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] } 私はMarkdown以外でPrettierを利用するつもりはないので，以下のようにしています．\nPlug 'prettier/vim-prettier', { \\ 'do': 'yarn install', \\ 'for': 'markdown'} 設定を書き込み終えたら，保存し，プラグインをインストールします．\n$ vim +PlugInstall +qa エラーがでなければインストールは完了です．\nvim-prettierを使う vim-prettierを使ってみます．まずは適当なMarkdownファイルを作成します．\n1 2 3 4 5 6 7 8 9  # vim-prettierテスト  * xxx * yyy * zzz |x|y|z| |-|-|-| |asdf|ghjk|l;\u0026#39;|   そして，\n:Prettier を実行します．すると以下のようになると思います．\n# vim-prettier テスト - xxx - yyy - zzz | x | y | z | | ---- | ---- | --- | | asdf | ghjk | l;' | テーブルは正しく整形されていますが，他の部分も意図しない変更がされています．\nこれはPrettierがMarkdownファイルを整形する際に，\n リストの先頭を-にする 英単語の前後にはスペースを入れる  というルールがあるからだそうです．\nリストの先頭を-にするのは問題ありませんが英単語の前後にスペースが入るのは，日本語と英語が混ざる文章では邪魔に感じます．\n私は，テーブルの整形だけにPrettierを使おうと思っているので，ヴィジュアルモードで選択してからPrettierを使うことにします．\n "
-},
-{
-	"uri": "https://usagikeri.net/tags/vim/",
+	"uri": "https://usagikeri.net/categories/vim/",
 	"title": "vim",
 	"tags": [],
 	"categories": [],
@@ -63,7 +54,7 @@
 	"content": ""
 },
 {
-	"uri": "https://usagikeri.net/categories/vim/",
+	"uri": "https://usagikeri.net/tags/vim/",
 	"title": "vim",
 	"tags": [],
 	"categories": [],

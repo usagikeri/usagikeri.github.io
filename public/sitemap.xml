@@ -4,27 +4,7 @@
   
   <url>
     <loc>https://usagikeri.net/categories/</loc>
-    <lastmod>2020-05-30T22:32:31+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://usagikeri.net/posts/</loc>
-    <lastmod>2020-05-30T22:32:31+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://usagikeri.net/tags/</loc>
-    <lastmod>2020-05-30T22:32:31+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://usagikeri.net/posts/test/</loc>
-    <lastmod>2020-05-30T22:32:31+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://usagikeri.net/</loc>
-    <lastmod>2020-05-30T22:32:31+09:00</lastmod>
+    <lastmod>2019-03-03T14:48:33+09:00</lastmod>
   </url>
   
   <url>
@@ -33,12 +13,27 @@
   </url>
   
   <url>
-    <loc>https://usagikeri.net/tags/vim/</loc>
+    <loc>https://usagikeri.net/posts/</loc>
+    <lastmod>2019-03-03T14:48:33+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://usagikeri.net/tags/</loc>
+    <lastmod>2019-03-03T14:48:33+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://usagikeri.net/</loc>
     <lastmod>2019-03-03T14:48:33+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://usagikeri.net/categories/vim/</loc>
+    <lastmod>2019-03-03T14:48:33+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://usagikeri.net/tags/vim/</loc>
     <lastmod>2019-03-03T14:48:33+09:00</lastmod>
   </url>
   
