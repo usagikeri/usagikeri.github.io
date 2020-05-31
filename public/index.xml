@@ -7,12 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>jp</language>
     <copyright>©{year}, All Rights Reserved</copyright>
-    <lastBuildDate>Sun, 03 Mar 2019 14:48:33 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 30 May 2020 22:32:31 +0900</lastBuildDate>
     
         <atom:link href="https://usagikeri.net/index.xml" rel="self" type="application/rss+xml" />
     
     
     
+      
+      <item>
+        <title>Test</title>
+        <link>https://usagikeri.net/posts/test/</link>
+        <pubDate>Sat, 30 May 2020 22:32:31 +0900</pubDate>
+        
+        <guid>https://usagikeri.net/posts/test/</guid>
+        <description>this is test</description>
+      </item>
       
       <item>
         <title>Markdownの表を整形するVim Plugin</title>
